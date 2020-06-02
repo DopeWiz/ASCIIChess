@@ -8,6 +8,7 @@ public:
     Board();
     void display();
     void move(Peice &p,int x,int y);
+    void move(int sx, int sy,int dx,int dy);
 
     // void display_p();
 

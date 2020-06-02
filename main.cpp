@@ -1,12 +1,13 @@
 #include <iostream>
 #include <cstring>
+#include <regex>
 #include "Board.hpp"
 
 // #include "Peice.hpp"
 
 using namespace std;
 
-bool input_handler();
+bool input_handler(Board &b);
 
 int main(int argc, char const *argv[])
 {
@@ -17,7 +18,7 @@ int main(int argc, char const *argv[])
     {
         system("clear");
         b.display();
-        if (!input_handler())
+        if (!input_handler(b))
         {
             running = false;
         }
@@ -26,20 +27,22 @@ int main(int argc, char const *argv[])
     return 0;
 }
 
-bool input_handler()
+bool input_handler(Board &b)
 {
     char response[100];
-    // char exit_cmd[] = "exit";
     cout<<":>>";
     cin >>  response;
-    // cout << "\n" <<respose;
-    // cout << "\n" <<exit_cmd;
+    if(!cin)
+    {
+        cout<<"\nASS\n";
+        return false;
+    }
     
     if(! (bool) strcmp(response,"exit"))
     {
-        // cout<<"exitting";
         return false;
     }
+    b.move(7,1,3,1);
 
     return true;
 }
