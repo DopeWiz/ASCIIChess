@@ -1,11 +1,14 @@
 #include <vector> 
 
+typedef std::vector  <std::pair <int,int>> pos_list;
+typedef std::pair <int,int> pos_pair;
+
 class Peice
 {
     char P_col;
     char P_id;
-    std::pair <int,int> P_pos;
-    std::vector  <std::pair <int,int>> avail_moves;
+    pos_pair P_pos;
+    pos_list avail_moves;
 
 public:
     bool in_game;
